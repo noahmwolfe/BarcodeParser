@@ -4,8 +4,19 @@
              xmlns:local="clr-namespace:BarcodeScanner"
              x:Class="BarcodeScanner.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Scan" Clicked="Scan_Clicked"/>
+            <Label Text="" x:Name="license" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="full_name" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="last_name" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="first_middle" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="first_name" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="middle_name" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="address" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="city" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="state" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="zip" TextColor="Red" HorizontalOptions="Center"></Label>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
