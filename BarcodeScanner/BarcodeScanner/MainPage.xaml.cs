@@ -35,7 +35,15 @@ namespace BarcodeScanner
 
                     // Outputting Drivers License Info to App
                     DriversLicenseFields.Fields dlFields = new DriversLicenseFields.Fields();
-                    BarcodeParser.ParseResults(result.Text, ref dlFields);
+                    try
+                    {
+                        BarcodeParser.ParseResults(result.Text, ref dlFields);
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlert("Invalid Barcode", "The barcode could not be read! Please be sure you are scanning a drivers license", "Ok");
+                    }
+                    
                     last_name.Text = dlFields.last_name;
                     if (dlFields.first_middle != null)
                     {
