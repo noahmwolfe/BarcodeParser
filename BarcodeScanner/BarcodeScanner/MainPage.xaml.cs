@@ -74,6 +74,23 @@ namespace BarcodeScanner
                         last_name.IsVisible = false;
                     }
 
+                    string month;
+                    string day;
+                    string year;
+                    if ((dlFields.birthday[0] == '1' && dlFields.birthday[1] == '9') || (dlFields.birthday[0] == '2' && dlFields.birthday[1] == '0'))
+                    {
+                        year = dlFields.birthday.Substring(0, 4);
+                        month = dlFields.birthday.Substring(4, 2);
+                        day = dlFields.birthday.Substring(6, 2);
+                    }
+                    else
+                    {
+                        month = dlFields.birthday.Substring(0, 2);
+                        day = dlFields.birthday.Substring(2, 2);
+                        year = dlFields.birthday.Substring(4, 4);
+                    }
+
+                    birthday.Text = month + "/" + day + "/" + year;
                     address.Text = dlFields.address;
                     city.Text = dlFields.city;
                     state.Text = dlFields.state;

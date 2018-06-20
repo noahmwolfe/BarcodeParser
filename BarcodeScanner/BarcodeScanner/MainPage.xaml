@@ -13,6 +13,7 @@
             <Label Text="" x:Name="first_middle" TextColor="Red" HorizontalOptions="Center"></Label>
             <Label Text="" x:Name="first_name" TextColor="Red" HorizontalOptions="Center"></Label>
             <Label Text="" x:Name="middle_name" TextColor="Red" HorizontalOptions="Center"></Label>
+            <Label Text="" x:Name="birthday" TextColor="Red" HorizontalOptions="Center"></Label>
             <Label Text="" x:Name="address" TextColor="Red" HorizontalOptions="Center"></Label>
             <Label Text="" x:Name="city" TextColor="Red" HorizontalOptions="Center"></Label>
             <Label Text="" x:Name="state" TextColor="Red" HorizontalOptions="Center"></Label>

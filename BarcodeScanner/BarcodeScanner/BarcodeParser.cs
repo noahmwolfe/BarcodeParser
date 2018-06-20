@@ -8,70 +8,73 @@ namespace BarcodeScanner
     {
         public static void ParseResults(string results, ref DriversLicenseFields.Fields dlFields)
         {
-            string[] separator = { "DAQ" };
-            string [] outputs = results.Split('\n');
-            if (outputs[1].Contains("DAQ"))
-            {
-                string[] license_num = outputs[1].Split(separator, StringSplitOptions.None);
-                dlFields.license = license_num[1];
-            }
+            string[] separator = { "DAQ", "DAA", "DCS", "DAC", "DAD", "DCT", "DBB", "DAG", "DAI", "DAJ", "DAK" };
+            char[] separator_chars = { '\n', '\r' };
+            string [] outputs = results.Split(separator_chars);
+
+            string[] split_result;
 
             foreach (string output in outputs)
             {
                 if(!String.IsNullOrWhiteSpace(output) && output.Length >= 3)
                 {
-                    string abbr = output.Substring(0, 3);
                     
-                    switch (abbr)
+                    if (output.Contains("DAA"))
                     {
-                        case "DAA":
-                            dlFields.full_name = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DCS":
-                            dlFields.last_name = output.Substring(3, output.Length - 3);
-                                break;
-
-                        case "DAC":
-                            dlFields.first_name = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DAD":
-                            dlFields.middle_name = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DCT":
-                            dlFields.first_middle = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DBB":
-                            dlFields.birthday = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DAG":
-                            dlFields.address = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DAI":
-                            dlFields.city = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DAJ":
-                            dlFields.state = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DAK":
-                            dlFields.zip = output.Substring(3, output.Length - 3);
-                            break;
-
-                        case "DAQ":
-                            dlFields.license = output.Substring(3, output.Length - 3);
-                            break;
-
-                        default:
-                            break;
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.full_name = split_result[1];
                     }
-                    
+                    else if (output.Contains("DCS"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.last_name = split_result[1];
+                    }
+                    else if (output.Contains("DAC"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.first_name = split_result[1];
+                    }
+                    else if (output.Contains("DAD"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.middle_name = split_result[1];
+                    }
+                    else if (output.Contains("DCT"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.first_middle = split_result[1];
+                    }
+                    else if (output.Contains("DBB"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.birthday = split_result[1];
+                    }
+                    else if (output.Contains("DAG"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.address = split_result[1];
+                    }
+                    else if (output.Contains("DAI"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.city = split_result[1];
+                    }
+                    else if (output.Contains("DAJ"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.state = split_result[1];
+                    }
+                    else if (output.Contains("DAK"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.zip = split_result[1];
+                    }
+                    else if (output.Contains("DAQ"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.license = split_result[1];
+                    }
+
                 }
                     
             }
