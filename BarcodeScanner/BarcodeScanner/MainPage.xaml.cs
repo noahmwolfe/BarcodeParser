@@ -41,7 +41,7 @@ namespace BarcodeScanner
                     }
                     catch (Exception ex)
                     {
-                        await DisplayAlert("Invalid Barcode", "The barcode could not be read! Please be sure you are scanning a drivers license", "Ok");
+                        await DisplayAlert("Invalid Barcode", "The barcode could not be read! Please be sure you are scanning a valid Drivers License", "Ok");
                     }
                     
                     last_name.Text = dlFields.last_name;
