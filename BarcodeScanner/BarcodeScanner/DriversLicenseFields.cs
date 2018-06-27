@@ -19,6 +19,9 @@ namespace BarcodeScanner
             public string zip;
             public string license;
             public string birthday;
+            public string gender;
+            public string height;
+            public string weight;
         };
     }
 }

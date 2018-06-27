@@ -74,6 +74,21 @@ namespace BarcodeScanner
                         split_result = output.Split(separator, StringSplitOptions.None);
                         dlFields.license = split_result[1];
                     }
+                    else if (output.Contains("DBC"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.gender = split_result[1];
+                    }
+                    else if (output.Contains("DAU"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.height = split_result[1];
+                    }
+                    else if (output.Contains("DAW"))
+                    {
+                        split_result = output.Split(separator, StringSplitOptions.None);
+                        dlFields.weight = split_result[1];
+                    }
 
                 }
                     
